@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAA5B1D0-4FC0-408C-A602-133F089F6ADA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Deduce.DMIP.ResourceSync</RootNamespace>
+    <AssemblyName>Deduce.DMIP.ResourceSync</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>5</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aliyun.OSS, Version=2.9.0.0, Culture=neutral, PublicKeyToken=0ad4175f0dac0b9b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Aliyun.OSS.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.Common.Components, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.Common.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.Common.Entity, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.Common.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.Common.Formula, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.Common.Formula.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.Common.SchedulePolicy, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.Common.SchedulePolicy.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.Common.Utility, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.Common.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Business.Components, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Business.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Business.DataAnalyze, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Business.DataAnalyze.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Business.FileAnalyze, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Business.FileAnalyze.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Business.Formula, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Business.Formula.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Business.Template, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Business.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Business.WebAnalyze, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Business.WebAnalyze.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.ResourceManage, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.ResourceManage.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Sys.CacheDB, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Sys.CacheDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Sys.DataBase, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Sys.DataBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.Dmip.Sys.IDataBus">
+      <HintPath>..\..\..\commdll\Deduce.Dmip.Sys.IDataBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Sys.IDataService, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Sys.IDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="deduce.DMIP.Sys.MdbOperate, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\deduce.DMIP.Sys.MdbOperate.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Sys.OperateData, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Sys.OperateData.dll</HintPath>
+    </Reference>
+    <Reference Include="Deduce.DMIP.Sys.SysData, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Deduce.DMIP.Sys.SysData.dll</HintPath>
+    </Reference>
+    <Reference Include="DeepCloner, Version=0.10.0.0, Culture=neutral, PublicKeyToken=dc0b95cf99bf4e99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\DeepCloner.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Design.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.Design.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.Utils.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraBars.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.1.Design, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraBars.v10.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1.Design, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraEditors.v10.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraGrid.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.1.Design, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraGrid.v10.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraLayout.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.1.Design, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraLayout.v10.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraNavBar.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v10.1.Design, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraNavBar.v10.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraTreeList.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.1.Design, Version=10.1.6.0, Culture=neutral, PublicKeyToken=5a00f9c2a6d1f162, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\DevExpress.XtraTreeList.v10.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Components\Mircrosoft\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Components\Mircrosoft\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\commdll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\commdll\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Auto.Middlewares.Client" Version="1.0.3.4" />
+    <PackageReference Include="DMP.Common.Configuration" Version="1.34.0.19" />
+    <PackageReference Include="DMP.Common.CrystalQuartz" Version="1.34.0.3" />
+    <PackageReference Include="DMP.Common.Logging" Version="1.34.0.22" />
+    <PackageReference Include="SkyApm.Agent.Owin" Version="1.34.0.19" />
+    <PackageReference Include="SkyApm.Tracing.Quartz" Version="1.34.0.19" />
+    <PackageReference Include="SkyApm.Tracing.RabbitMQ" Version="1.34.0.21" />
+    <PackageReference Include="System.Resources.Extensions" Version="9.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="define\BaseSyncService.cs" />
+    <Compile Include="define\CacheData.cs" />
+    <Compile Include="define\SBGGData.cs" />
+    <Compile Include="define\UpdateSBGGTables.cs" />
+    <Compile Include="Server\AStock\AStockSyncHelper.cs" />
+    <Compile Include="Server\AStock\AStockToOssService.cs" />
+    <Compile Include="Server\AStock\AStockUploadService.cs" />
+    <Compile Include="Server\HKStock\HKStockSyncHelper.cs" />
+    <Compile Include="Server\HKStock\HKStockToOSSService.cs" />
+    <Compile Include="Server\HKStock\HKStockUploadService.cs" />
+    <Compile Include="Server\PdfToHtml\HtmlToOssService.cs" />
+    <Compile Include="Server\PdfToHtml\HtmlSyncHelper.cs" />
+    <Compile Include="Server\ThirdBoard\ResourceToFastDFS.cs" />
+    <Compile Include="Server\ThirdBoard\SBSyncHelper.cs" />
+    <Compile Include="Server\ThirdBoard\SBSyncService.cs" />
+    <Compile Include="Server\ThirdBoard\SBSyncToOssService.cs" />
+    <Compile Include="Server\ThirdBoard\SBWBSync.cs" />
+    <Compile Include="Server\ThirdBoard\SyncHelper.cs" />
+    <Compile Include="UI\AStock\AStockDragHelper.cs" />
+    <Compile Include="UI\AStock\AStockQueryHelper.cs" />
+    <Compile Include="UI\AStock\AStockUploadHelper.cs" />
+    <Compile Include="UI\AStock\frmBatchModifyFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmBatchModifyFiles.Designer.cs">
+      <DependentUpon>frmBatchModifyFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmBrowseUploadedFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmBrowseUploadedFiles.Designer.cs">
+      <DependentUpon>frmBrowseUploadedFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmEditModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmEditModel.Designer.cs">
+      <DependentUpon>frmEditModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmEditTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmEditTable.Designer.cs">
+      <DependentUpon>frmEditTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmLog.Designer.cs">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmModifyFileProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmModifyFileProperty.Designer.cs">
+      <DependentUpon>frmModifyFileProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmMsgScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmMsgScript.Designer.cs">
+      <DependentUpon>frmMsgScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmResourceRuleDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmResourceRuleDesign.Designer.cs">
+      <DependentUpon>frmResourceRuleDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\frmUploadFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AStock\frmUploadFiles.Designer.cs">
+      <DependentUpon>frmUploadFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AStock\StockInfo.cs" />
+    <Compile Include="UI\HKStock\HKHelper.cs" />
+    <Compile Include="UI\HKStock\HKQueryHelper.cs" />
+    <Compile Include="UI\HKStock\HKUploadHelper.cs" />
+    <Compile Include="UI\ThirdBoard\frmLeakQueryDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmLeakQueryDelete.Designer.cs">
+      <DependentUpon>frmLeakQueryDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBFLRuleDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBFLRuleDesign.Designer.cs">
+      <DependentUpon>frmSBFLRuleDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="define\ResourceSyncRule.cs" />
+    <Compile Include="UI\ThirdBoard\frmSBFLNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBFLNode.Designer.cs">
+      <DependentUpon>frmSBFLNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBFLTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBFLTree.Designer.cs">
+      <DependentUpon>frmSBFLTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBHYFLNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBHYFLNode.Designer.cs">
+      <DependentUpon>frmSBHYFLNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBHYFLTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBHYFLTree.Designer.cs">
+      <DependentUpon>frmSBHYFLTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAutoSync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAutoSync.Designer.cs">
+      <DependentUpon>frmAutoSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ThirdBoard\SyncSBFL.cs" />
+    <Compile Include="UI\ThirdBoard\frmLeakQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmLeakQuery.Designer.cs">
+      <DependentUpon>frmLeakQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\SBQueryHelper.cs" />
+    <Compile Include="UI\ThirdBoard\frmLBModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmLBModify.Designer.cs">
+      <DependentUpon>frmLBModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBGGModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBGGModify.Designer.cs">
+      <DependentUpon>frmSBGGModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBGGQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSBGGQuery.Designer.cs">
+      <DependentUpon>frmSBGGQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSelectGGLB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThirdBoard\frmSelectGGLB.Designer.cs">
+      <DependentUpon>frmSelectGGLB.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\AStock\frmBatchModifyFiles.resx">
+      <DependentUpon>frmBatchModifyFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmBrowseUploadedFiles.resx">
+      <DependentUpon>frmBrowseUploadedFiles.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmEditModel.resx">
+      <DependentUpon>frmEditModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmEditTable.resx">
+      <DependentUpon>frmEditTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmLog.resx">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmModifyFileProperty.resx">
+      <DependentUpon>frmModifyFileProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmMsgScript.resx">
+      <DependentUpon>frmMsgScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmResourceRuleDesign.resx">
+      <DependentUpon>frmResourceRuleDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AStock\frmUploadFiles.resx">
+      <DependentUpon>frmUploadFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmLeakQueryDelete.resx">
+      <DependentUpon>frmLeakQueryDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBFLRuleDesign.resx">
+      <DependentUpon>frmSBFLRuleDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBFLNode.resx">
+      <DependentUpon>frmSBFLNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBFLTree.resx">
+      <DependentUpon>frmSBFLTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBHYFLNode.resx">
+      <DependentUpon>frmSBHYFLNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBHYFLTree.resx">
+      <DependentUpon>frmSBHYFLTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAutoSync.resx">
+      <DependentUpon>frmAutoSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmLBModify.resx">
+      <DependentUpon>frmLBModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmLeakQuery.resx">
+      <DependentUpon>frmLeakQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBGGModify.resx">
+      <DependentUpon>frmSBGGModify.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSBGGQuery.resx">
+      <DependentUpon>frmSBGGQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThirdBoard\frmSelectGGLB.resx">
+      <DependentUpon>frmSelectGGLB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\ResourceSync.ico" />
+    <Content Include="Resource\ResourceToOss.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Server\Finance\" />
+    <Folder Include="UI\Finance\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
